@@ -1,6 +1,8 @@
-This is used to install opencv4.0.0 on the Jetson Nano with ubuntu 18.04 LTS. I have a 32gb memory card I am using. Do not use the suggested 16gb memory because you will run out of memory right after setup.
+This is used to install opencv4.0.0 on the Jetson Nano with ubuntu 18.04 LTS. I have a 32gb memory card I am using. 
+Do not use the suggested 16gb memory because you will run out of memory right after setup.
 
-First need to increase amount of swap we have because the Nano does not have enough RAM for finishing the installation at the end. Open the terminal and type the line:
+First need to increase amount of swap we have because the Nano does not have enough RAM for finishing the installation 
+at the end. Open the terminal and type the line:
 
 	$ sudo apt-get install zram-config
 
