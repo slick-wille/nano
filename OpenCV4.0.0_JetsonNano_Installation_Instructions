@@ -1,0 +1,50 @@
+This is used to install opencv4.0.0 on the Jetson Nano with ubuntu 18.04 LTS. I have a 32gb memory card I am using. Do not use the suggested 16gb memory because you will run out of memory right after setup.
+
+First need to increase amount of swap we have because the Nano does not have enough RAM for finishing the installation at the end. Open the terminal and type the line:
+
+	$ sudo apt-get install zram-config
+
+This installs the zram module
+Type in terminal:
+
+	$ sudo gedit /usr/bin/init-zram-swapping
+
+This file is responsible for the swap data.
+Replace the line:
+
+	mem=$(((totalmem / 2 / ${NRDEVICES}) * 1024))
+
+with:
+
+	mem=$(((totalmem / ${NRDEVICES}) * 1024))
+
+This doubles the amount of swap you have. You only remove the "/ 2"
+Reboot your Nano.
+To check for swap memory success go to 'System Monitor' go into the 'Resources' tab. You should see 3.9GiB for your 'Swap' in the 'Memory and Swap History'
+
+Now it is time to run the setup up from https://github.com/AastaNV/JEP to install opencv4.0.0.
+To do this:
+Navigate to the github site and clone it.
+Open terminal, go to location where you want to save this git and make a directory 
+
+	$ mkdir <name of your git directory>
+
+Make another directory for where you want to save your openCV4.1. This directory will be used in a later step.
+
+	$ mkdir <name of your openCV directory>
+
+Clone it to that directory
+
+	$ git clone https://github.com/AastaNV/JEP <name of your git directory>
+
+Navigate to your git directory and type
+
+	$ /script
+
+Now you will run the .sh file for your nano.
+
+	$ ./install_opencv4.0.0_Nano.sh <name of your openCV directory>
+
+The .sh file will now run, and save everything in the openCV directory you created. Install ~1 hour. 
+Good luck :)
+
